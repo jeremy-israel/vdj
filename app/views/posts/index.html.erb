@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>Vie de joie</h1>
+
+      <% @posts.each do |post| %>
+        <div class="post">
+          <p><%= post.content %></p>
+          <p>Posté par <%= post.user.email %></p>
+        </div>
+      <% end %>
+
+      <% if current_user %>
+        <h2>Ajouter une vie de joie :</h2>
+        <%= simple_form_for @post do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Publier la VDJ" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
